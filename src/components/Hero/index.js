@@ -1,0 +1,23 @@
+import React from "react";
+
+import styles from "./hero.module.css";
+import generalStyle from "./../../app.module.css";
+
+const Hero = ({ image, heading, subhead }) => {
+  return (
+    <div className={`${styles["hero--card"]} ${image ? "" : styles["no-img"]}`}>
+      {image && <img src={image} alt="beach" />}
+
+      <span
+        className={`${styles["hero--text"]}  ${
+          image ? "" : styles["custom-text"]
+        }`}
+      >
+        <h1 className={generalStyle.heading}>{heading}</h1>
+        <p>{subhead}</p>
+      </span>
+    </div>
+  );
+};
+
+export default Hero;

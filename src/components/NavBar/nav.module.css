@@ -1,0 +1,23 @@
+.nav--container {
+  height: 90px;
+  background-color: var(--clr-neutral-100);
+}
+
+.nav {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 85%;
+  height: 100%;
+  margin: 0 auto;
+}
+
+.nav-icon {
+  font-size: 30px;
+  font-family: "Red Hat Display", sans-serif;
+}
+
+.bars {
+  width: 40px;
+  cursor: pointer;
+}
