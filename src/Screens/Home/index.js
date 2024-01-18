@@ -1,11 +1,10 @@
 import React from "react";
-import { NavBar, Hero, Places } from "../../components";
+import { Hero, Places } from "../../components";
 import { beachImg } from "../../assets";
 
 const Home = () => {
   return (
     <div>
-      <NavBar />
       <Hero
         image={beachImg}
         heading="Explore lagos anywhere"

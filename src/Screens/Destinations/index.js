@@ -1,13 +1,36 @@
-import React from "react";
-import { NavBar, Hero } from "../../components";
+import React, { useEffect, useState } from "react";
+import { Hero } from "../../components";
+
 import { destinationImg } from "../../assets";
 import styles from "./destinations.module.css";
-import Destination from "../Destination";
+import DestinationCard from "../../components/DestinationCard";
 
 const Destinations = () => {
+  const [data, setData] = useState([]);
+
+  const fetchDestination = async () => {
+    try {
+      const response = await fetch("/data.json", {
+        headers: {
+          accept: "application/json",
+          "User-agent": "learning app",
+        },
+      });
+      if (!response.ok) throw new Error(response.text);
+
+      const data = await response.json();
+      setData(data);
+    } catch (error) {
+      console.log(error.message);
+    }
+  };
+
+  useEffect(() => {
+    fetchDestination();
+  }, []);
+
   return (
     <div>
-      <NavBar />
       <Hero
         image={false}
         heading="Destinations"
@@ -15,31 +38,9 @@ const Destinations = () => {
       />
 
       <div className={styles["destination--wrapper"]}>
-        <Destination
-          image={destinationImg}
-          heading="Ojo, Lagos"
-          subhead="A city with wildlife"
-        />
-        <Destination
-          image={destinationImg}
-          heading="Ojo, Lagos"
-          subhead="A city with wildlife"
-        />
-        <Destination
-          image={destinationImg}
-          heading="Ojo, Lagos"
-          subhead="A city with wildlife"
-        />
-        <Destination
-          image={destinationImg}
-          heading="Ojo, Lagos"
-          subhead="A city with wildlife"
-        />
-        <Destination
-          image={destinationImg}
-          heading="Ojo, Lagos"
-          subhead="A city with wildlife"
-        />
+        {data.map((item) => (
+          <DestinationCard key={item.id} item={item} />
+        ))}
       </div>
     </div>
   );

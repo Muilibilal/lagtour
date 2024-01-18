@@ -15,7 +15,7 @@
   right: 0;
   bottom: 0;
   position: absolute;
-  background-color: var(--clr-neutral-400);
+  background-color: var(--clr-neutral-500);
   opacity: 0.4;
   border-radius: inherit;
 }
@@ -51,4 +51,5 @@
 
 .no-img .custom-text p {
   width: 100%;
+  text-transform: capitalize;
 }
