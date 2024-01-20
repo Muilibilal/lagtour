@@ -1,34 +1,60 @@
-@import url("https://fonts.googleapis.com/css2?family=Inter+Tight&family=Red+Hat+Display:wght@700&display=swap");
+@import url('https://fonts.googleapis.com/css2?family=Inter+Tight&family=Red+Hat+Display:wght@700&display=swap');
 
 :root {
-  --clr-neutral-50: hsl(0, 0%, 100%);
-  --clr-neutral-100: hsl(0, 0%, 96%);
-  --clr-neutral-200: hsl(0, 0%, 91%);
-  --clr-neutral-300: hsl(0, 0%, 81%);
-  --clr-neutral-400: hsl(0, 0%, 46%);
-  --clr-neutral-500: hsl(0, 0%, 23%);
-  --clr-neutral-600: hsl(0, 0%, 18%);
-  --clr-neutral-700: hsl(0, 0%, 12%);
-  --clr-neutral-800: hsl(0, 0%, 2%);
-  --clr-neutral-900: hsl(0, 0%, 0%);
+	--clr-neutral-50: hsl(0, 0%, 100%);
+	--clr-neutral-100: hsl(0, 0%, 96%);
+	--clr-neutral-200: hsl(0, 0%, 91%);
+	--clr-neutral-300: hsl(0, 0%, 81%);
+	--clr-neutral-400: hsl(0, 0%, 46%);
+	--clr-neutral-500: hsl(0, 0%, 23%);
+	--clr-neutral-600: hsl(0, 0%, 18%);
+	--clr-neutral-700: hsl(0, 0%, 12%);
+	--clr-neutral-800: hsl(0, 0%, 2%);
+	--clr-neutral-900: hsl(0, 0%, 0%);
 
-  --clr-strong-100: hsl(48, 10%, 90%);
+	--clr-strong-100: hsl(48, 10%, 90%);
 
-  --clr-accent-300: hsl(274, 82%, 60%);
-  --clr-accent-400: hsl(274, 82%, 50%);
+	--clr-accent-300: hsl(274, 82%, 60%);
+	--clr-accent-400: hsl(274, 82%, 50%);
 
-  --clr-error-400: hsl(0, 100%, 66%);
+	--clr-error-400: hsl(0, 100%, 66%);
 }
 
 * {
-  box-sizing: border-box;
-  margin: 0;
-  padding: 0;
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+body {
+	margin: 0;
+	font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans',
+		'Helvetica Neue', sans-serif;
+	-webkit-font-smoothing: antialiased;
+	-moz-osx-font-smoothing: grayscale;
 }
 
+code {
+	font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
 body {
-  width: 100%;
-  height: 100vh;
-  font-family: "Inter Tight", sans-serif;
-  background-color: var(--clr-neutral-100);
+	width: 100%;
+	height: 100vh;
+	font-family: 'Inter Tight', sans-serif;
+	background-color: var(--clr-neutral-100);
+}
+.app-heading {
+	font-size: 64px;
+	font-family: 'Red Hat Display', sans-serif;
+}
+
+.app-large--heading {
+	font-size: 80px;
+	font-weight: 700;
+	font-family: 'Red Hat Display', sans-serif;
+}
+
+.app-small--heading {
+	font-size: 36px;
+	font-weight: 500;
+	font-family: 'Red Hat Display', sans-serif;
 }
