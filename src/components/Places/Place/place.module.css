@@ -1,37 +1,24 @@
 .place--container {
-<<<<<<< HEAD
+  color: #000;
   width: 85%;
   margin: 0 auto;
   padding: 10px 0;
   display: flex;
   align-items: flex-start;
   gap: 8px;
-}
-
-.place--container:not(:last-child) {
   border-bottom: 1px solid var(--clr-neutral-300);
-=======
-	color: #000;
-	width: 85%;
-	margin: 0 auto;
-	padding: 10px 0;
-	display: flex;
-	align-items: flex-start;
-	gap: 8px;
-	border-bottom: 1px solid var(--clr-neutral-300);
->>>>>>> 946a4cf9268056181914a4613a5d9441c5847a2a
 }
 
 .place-digit {
-	display: flex;
-	font-size: 18px;
-	justify-content: flex-start;
+  display: flex;
+  font-size: 18px;
+  justify-content: flex-start;
 }
 
 .place--container h2 {
-	width: 100%;
+  width: 100%;
 }
 
 .first-dest {
-	margin-top: 50px;
+  margin-top: 50px;
 }
