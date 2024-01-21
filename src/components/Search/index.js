@@ -1,87 +1,70 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState } from 'react';
 
-import styles from "./search.module.css";
-import { Link } from "react-router-dom";
+import styles from './search.module.css';
+import { Link } from 'react-router-dom';
 
 const Search = () => {
-  const [data, setData] = useState([]);
-  const [search, setSearch] = useState("");
-  const [mainSearch, setMainSearch] = useState("");
+	const [data, setData] = useState([]);
+	const [search, setSearch] = useState('');
 
-  const clearInput = () => {
-    setSearch("");
-    setData([]);
-  };
+	const [locations, setLocations] = useState([]);
 
-  useEffect(() => {
-    if (!mainSearch) {
-      setData([]);
-    } else {
-      const fetchQueryData = async () => {
-        try {
-          const response = await fetch("/data.json");
-          if (!response.ok) throw new Error(response.text);
+	useEffect(() => {
+		fetch('https://seyiadet.pythonanywhere.com/api/all-locations/')
+			.then((res) => res.json())
+			.then((data) => setLocations(data));
+	}, []);
 
-          const data = await response.json();
+	const clearInput = () => {
+		setSearch('');
+		setData([]);
+	};
 
-          let query = data.map((data) => {
-            let holder = data.name
-              .toLowerCase()
-              .includes(mainSearch.toLowerCase());
+	useEffect(() => {
+		if (!search) {
+			setData([]);
+		} else {
+			const fetchQueryData = async () => {
+				try {
+					let query = [];
 
-            return holder ? { id: data.id, name: data.name } : null;
-          });
+					locations.forEach((location) => {
+						let holder = location?.name?.toLowerCase().includes(search.toLowerCase());
 
-          setData(query);
-        } catch (error) {
-          console.log(error.message);
-        }
-      };
+						holder && query.push({ id: location?.id, name: location?.name });
+					});
 
-      fetchQueryData();
-    }
+					setData(query);
+				} catch (error) {
+					console.log(error.message);
+				}
+			};
 
-    console.log("searching...");
-  }, [mainSearch]);
+			fetchQueryData();
+		}
+	}, [search, locations]);
 
-  useEffect(() => {
-    const timeout = setTimeout(() => {
-      setMainSearch(search);
-    }, 1000);
-
-    return () => {
-      clearTimeout(timeout);
-    };
-  }, [search]);
-
-  return (
-    <div className={styles["search-container"]}>
-      <input
-        className={styles["search-input"]}
-        type="text"
-        value={search}
-        placeholder="Search for a destination..."
-        onChange={(event) => setSearch(event.target.value)}
-      />
-      <div className={styles.dropdown}>
-        {data.length
-          ? data.map((val) => {
-              return (
-                val && (
-                  <Link
-                    to={`/destination/${val.id}`}
-                    onClick={clearInput}
-                    style={{ textDecoration: "none" }}
-                  >
-                    <span key={val?.id}>{val?.name}</span>
-                  </Link>
-                )
-              );
-            })
-          : null}
-      </div>
-    </div>
-  );
+	return (
+		<div className={styles['search-container']}>
+			<input
+				className={styles['search-input']}
+				type="text"
+				value={search}
+				placeholder="Search for a destination..."
+				onChange={(event) => setSearch(event.target.value)}
+			/>
+			<div className={styles.dropdown}>
+				{search && data.length === 0 ? <span>No results</span> : ''}
+				{data.length
+					? data.map((val) => (
+							<Link to={`/destination/${val?.id}`} onClick={clearInput} style={{ textDecoration: 'none' }}>
+								<span key={val?.id}>{val?.name}</span>
+							</Link>
+					  ))
+					: null}
+			</div>
+		</div>
+	);
 };
 
 export default Search;
