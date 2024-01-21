@@ -5,6 +5,9 @@
   display: flex;
   align-items: flex-start;
   gap: 8px;
+}
+
+.place--container:not(:last-child) {
   border-bottom: 1px solid var(--clr-neutral-300);
 }
 
