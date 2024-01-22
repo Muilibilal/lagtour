@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { createContext, useEffect, useState } from "react";
 import { Hero } from "../../components";
 import { MapPinIcon, BuildingOfficeIcon } from "@heroicons/react/24/outline";
 
@@ -28,7 +28,11 @@ const PlaceInfo = () => {
   }, [id]);
 
   if (loading) {
-    return <h1>Loading...</h1>;
+    return (
+      <div class={styles.load}>
+        <span className={styles.loader}></span>
+      </div>
+    );
   } else if (isError) {
     return <h1>Couldn't find that location</h1>;
   }
