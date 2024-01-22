@@ -1,4 +1,4 @@
-import React, { createContext, useEffect, useState } from "react";
+import React, { useEffect, useState } from "react";
 import { Hero } from "../../components";
 import { MapPinIcon, BuildingOfficeIcon } from "@heroicons/react/24/outline";
 
@@ -27,7 +27,7 @@ const PlaceInfo = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (loading) {
+  if (true) {
     return (
       <div class={styles.load}>
         <span className={styles.loader}></span>

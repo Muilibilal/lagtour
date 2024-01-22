@@ -4,13 +4,24 @@ import styles from "./destinations.module.css";
 import DestinationCard from "../../components/DestinationCard";
 
 const Destinations = () => {
+  const [loading, setLoading] = useState(false);
   const [locations, setLocations] = useState([]);
 
   useEffect(() => {
+    setLoading(true);
     fetch("https://seyiadet.pythonanywhere.com/api/all-locations/")
       .then((res) => res.json())
-      .then((data) => setLocations(data));
+      .then((data) => setLocations(data))
+      .finally(() => setLoading(false));
   }, []);
+
+  if (loading) {
+    return (
+      <div class={styles.load}>
+        <span className={styles.loader}></span>
+      </div>
+    );
+  }
 
   return (
     <div>
