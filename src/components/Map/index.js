@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
-import { MapContainer, Marker, Popup, TileLayer } from "react-leaflet";
+import { MapContainer, Marker, TileLayer } from "react-leaflet";
 import styles from "./map.module.css";
+import "leaflet/dist/leaflet.css";
 
 const Map = ({ position: defaultPosition }) => {
   const [position, setPosition] = useState([6.4342024, 3.4802805]);
