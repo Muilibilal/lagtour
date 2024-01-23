@@ -77,9 +77,13 @@ const PlaceInfo = () => {
           </span>
         </div>
       </section>
-      {console.log(location?.coordinate_x, location?.coordinate_y)}
       {location?.coordinate_x && location?.coordinate_y ? (
-        <Map position={[location.coordinate_x, location.coordinate_y]} />
+        <Map
+          position={[
+            parseFloat(location.coordinate_x),
+            parseFloat(location.coordinate_y),
+          ]}
+        />
       ) : null}
     </div>
   );
