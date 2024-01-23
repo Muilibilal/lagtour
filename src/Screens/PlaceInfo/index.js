@@ -27,7 +27,7 @@ const PlaceInfo = () => {
       .finally(() => setLoading(false));
   }, [id]);
 
-  if (true) {
+  if (loading) {
     return (
       <div class={styles.load}>
         <span className={styles.loader}></span>
