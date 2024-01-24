@@ -9,7 +9,6 @@ Leaflet.Icon.Default.imagePath =
   "//cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/images/";
 
 const Map = ({ position: defaultPosition, popupText }) => {
-  console.log(defaultPosition);
   const [position, setPosition] = useState([6.4342024, 3.4802805]);
   const [map, setMap] = useState(null);
   const mapRef = useRef(null);
@@ -18,6 +17,7 @@ const Map = ({ position: defaultPosition, popupText }) => {
     if (defaultPosition === "") return;
     setPosition(defaultPosition);
 
+    console.log(mapRef.current);
     if (mapRef.current) {
       mapRef.current.flyTo(defaultPosition);
     }
