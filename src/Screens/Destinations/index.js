@@ -17,7 +17,7 @@ const Destinations = () => {
 
   if (loading) {
     return (
-      <div class={styles.load}>
+      <div className={styles.load}>
         <span className={styles.loader}></span>
       </div>
     );

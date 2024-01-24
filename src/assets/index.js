@@ -1,4 +1,4 @@
-export { default as beachImg } from "./images/beach.jpg";
+export { default as lagosImg } from "./images/lagos.jpg";
 export { default as destinationImg } from "./images/dummy.jpg";
 export { default as nikeArt } from "./images/nike-art.jpg";
 export { default as facebook } from "./icons/facebook.png";

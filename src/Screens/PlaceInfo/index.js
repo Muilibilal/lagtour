@@ -5,7 +5,6 @@ import { MapPinIcon, BuildingOfficeIcon } from "@heroicons/react/24/outline";
 import styles from "./placeinfo.module.css";
 import { useParams } from "react-router-dom";
 import Map from "../../components/Map";
-import "leaflet/dist/leaflet.css";
 
 const PlaceInfo = () => {
   const [loading, setLoading] = useState(false);
@@ -29,7 +28,7 @@ const PlaceInfo = () => {
 
   if (loading) {
     return (
-      <div class={styles.load}>
+      <div className={styles.load}>
         <span className={styles.loader}></span>
       </div>
     );
@@ -83,6 +82,7 @@ const PlaceInfo = () => {
             parseFloat(location.coordinate_x),
             parseFloat(location.coordinate_y),
           ]}
+          popupText={location?.name}
         />
       ) : null}
     </div>
