@@ -28,7 +28,7 @@ const Destinations = () => {
       <Hero
         image={false}
         heading="Destinations"
-        subhead="Work and travel the world with a community of like-minded people."
+        subhead="While your travel bucket list may be long and ever-growing, here are some of the destinations that deserves a prominent spot on in Lagos"
       />
 
       <div className={styles["destination--wrapper"]}>

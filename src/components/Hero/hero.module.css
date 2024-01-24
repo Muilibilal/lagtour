@@ -1,5 +1,5 @@
 .hero--card {
-  border-radius: 30px;
+  border-radius: 20px;
   /* transform: scale(2rem); */
   width: 85%;
   height: 560px;
@@ -51,6 +51,7 @@
 }
 
 .no-img .custom-text p {
-  width: 100%;
+  width: 95%;
+  word-spacing: 0.3rem;
   text-transform: capitalize;
 }
