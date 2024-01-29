@@ -1,6 +1,10 @@
 import React, { useEffect, useState } from "react";
 import { Hero } from "../../components";
-import { MapPinIcon, BuildingOfficeIcon } from "@heroicons/react/24/outline";
+import {
+  MapPinIcon,
+  BuildingOfficeIcon,
+  ShieldCheckIcon,
+} from "@heroicons/react/24/outline";
 
 import styles from "./placeinfo.module.css";
 import { useParams } from "react-router-dom";
@@ -73,6 +77,11 @@ const PlaceInfo = () => {
             <MapPinIcon className={`h-6 w-6 text-gray-500 ${styles.icon}`} />
             <p>Location</p>
             <h3>{location?.location_area}</h3>
+          </span>
+          <span className={styles["details--card"]}>
+            <ShieldCheckIcon className="h-6 w-6 text-gray-500" />
+            <p>Latest Security Situation</p>
+            <h3>{location?.security_situation || "Safe to visit"}</h3>
           </span>
         </div>
       </section>
